@@ -11,7 +11,6 @@ func TestReconcileResult_ShowResult(t *testing.T) {
 		name   string // description of this test case
 		fields entity.ReconcileResult
 	}{
-		// TODO: Add test cases.
 		{
 			name: "valid result",
 			fields: entity.ReconcileResult{
@@ -36,6 +35,17 @@ func TestReconcileResult_ShowResult(t *testing.T) {
 						},
 					},
 				},
+			},
+		},
+		{
+			name: "valid result with missing in bank or system file none",
+			fields: entity.ReconcileResult{
+				TotalProcessed:   100,
+				TotalMatch:       50,
+				TotalUnmatched:   20,
+				TotalDiscrepancy: 100.2500,
+				MissingInBank:    []entity.SystemTransaction{},
+				MissingInSystem:  map[string][]entity.BankTransaction{},
 			},
 		},
 	}
